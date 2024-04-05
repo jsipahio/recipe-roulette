@@ -1,0 +1,22 @@
+﻿@page "/example"
+
+<PageTitle>Example</PageTitle>
+
+<h1>Example</h1>
+
+<h4>Example 1</h4>
+<ul>
+    <li>@_example.Name</li>
+    <li>@_example.Role</li>
+    <li>
+        Attributes:<br/>
+        @foreach(var attr in _example.Attributes)
+        {
+            @attr <br/>
+        }
+    </li>
+</ul>
+
+@code {
+
+}

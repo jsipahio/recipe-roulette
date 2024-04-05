@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jw+aCJxSmhlg+WtzesPhBYiRmaExYtj90j7BWxQhpyDgE/Uk1X4MUyaRqHI1Axk5IiGlTHRbdPgHKyanDKTIfw==",
+  "dgSpecHash": "fPHKAcvcZPYEQSD4KLCQHgjUtgf6Ao4Scv/bVRDboNkfG6MbKUzrk+g+cQShpFCtIuzsKsxOM9O5ZORp8M1n7Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\jsipa\\Documents\\HIC\\recipe-roulette\\RecipeRoulette\\RecipeRoulette.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\jsipa\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\jsipa\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\jsipa\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512",
-    "C:\\Users\\jsipa\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.28\\microsoft.netcore.app.host.win-x64.6.0.28.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
