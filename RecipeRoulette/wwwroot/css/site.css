@@ -62,3 +62,24 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.background {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+.cover {
+    color: black;
+    font-weight: bold;
+    left: 20%;
+}
+
+.navbar {
+    background-color: crimson;
+}
+
+.nav-item-active {
+    background-color: darkred;
+}
