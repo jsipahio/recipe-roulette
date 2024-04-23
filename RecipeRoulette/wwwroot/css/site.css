@@ -1,5 +1,10 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+:root {
+    --start-rotation: 0deg;
+    --end-rotation: 719deg;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -82,4 +87,51 @@ a, .btn-link {
 
 .nav-item-active {
     background-color: darkred;
+}
+
+#wheel-container {
+    position: absolute;
+}
+
+#wheel {
+    background: conic-gradient(
+        red 60deg, 
+        orange 60deg 120deg, 
+        yellow 120deg 180deg, 
+        blue 180deg 240deg, 
+        green 240deg 300deg, 
+        purple 300deg
+    );
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#pointer {
+    position: relative;
+    top: 122px;
+    left:123px;
+    width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-left: 100px solid black;
+	border-bottom: 5px solid transparent;
+    z-index: 3;
+}
+
+.animate-wheel {
+    animation: wheel-spin 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes wheel-spin {
+    from {
+        rotate: var(--start-rotation);
+    }
+    to {
+        rotate: var(--end-rotation);
+    }
 }

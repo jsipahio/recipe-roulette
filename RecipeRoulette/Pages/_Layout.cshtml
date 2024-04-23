@@ -28,5 +28,18 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+    <script>
+        function spinWheel(start, end){
+            console.log("spinWheel has been invoked");
+            console.log(start, end);
+            const wheel = document.getElementById("wheel");
+            document.documentElement.style.setProperty('--start-rotation', start)
+            document.documentElement.style.setProperty('--end-rotation', end);
+            wheel.className = 'animate-wheel';
+            setTimeout(2500, () => {
+                wheel.className = 'dont-animate';
+            });
+        }
+    </script>
 </body>
 </html>
