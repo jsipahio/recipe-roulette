@@ -1,0 +1,42 @@
+@page "/forum"
+
+<PageTitle>Community Forum</PageTitle>
+
+<h4>Cooking Help, Hacks, and Culinary Adventures</h4>
+<button type="button" class="button btn-success" @onclick=ToggleInputForm>New Post</button>
+@if(!_hideInputForm)
+{
+    <div>
+        Title of Post: 
+        <InputText @bind-Value=inputModel.Title></InputText>
+        Name of Author: 
+        <InputText @bind-Value=inputModel.Author></InputText>
+        <div class="mt-auto">
+            Post Text: 
+            <InputTextArea @bind-Value=description />
+        </div>
+        <button role="button" class="button button-warning" @onclick=SavePost>Save</button>
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Date</th>
+            <th># of Replies</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var post in _forumPostMgr.ForumPosts)
+    {
+        <tr>
+            <td>@(post.Title)</td>
+            <td>@(post.Author)</td>
+            <td>@(post.Date.ToString("d"))</td>
+            <td>@(post.NumReplies)</td>
+        </tr>
+    }
+    </tbody>
+</table>

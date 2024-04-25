@@ -1,5 +1,4 @@
 ﻿@page "/"
-@inject IJSRuntime js;
 
 <PageTitle>Recipe Roulette</PageTitle>
 
@@ -36,6 +35,11 @@
         <button class="btn btn-danger" @onclick="@SpinWheel">Spin!</button>
         <div>
             <strong>Tonights recipe is!:</strong><br>
+                @if(recipe != null){
+                    <strong>
+                        @recipe.RecipeName
+                    </strong>
+                }
         </div>
     </div>
 </div>
@@ -43,31 +47,5 @@
 
 
 @code{
-    public class Type { 
-        public bool All {get;set;} = false;
-        public bool Breakfast {get;set;} = false;
-        public bool Lunch {get;set;} = false;
-    }
-    public class Cuisine {
-        public bool All {get;set;} = false;
-        public bool American {get;set;} = false;
-        public bool Chinese {get;set;} = false;
-    }
-    public class Diet {
-        public bool None { get; set; } = false;
-        public bool Vegan { get; set; } = false;
-        public bool Dairy { get; set; } = false;
-    }
-    private int rotationStart = 0;
-    public Type type = new Type();
-    public Cuisine cuisine = new Cuisine();
-    public Diet diet = new Diet();
-    private void SpinWheel(){
-        Random r = new Random();
-        int end = r.Next(720) + rotationStart + 360;
-        string startRotation = rotationStart.ToString() + "deg";
-        string endRotation = end.ToString() + "deg";
-        js.InvokeVoidAsync("spinWheel", startRotation, endRotation);
-        rotationStart = end;
-    }
+    
 }

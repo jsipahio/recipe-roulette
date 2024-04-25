@@ -1,0 +1,74 @@
+[
+    {
+        "ID": 1,
+        "RecipeName" : "Pancakes",
+        "Type": "Breakfast",
+        "Cuisine": "American",
+        "Restrictions": ["Dairy"],
+        "Ingredients": ["eggs", "milk", "flour"]
+    },
+    {
+        "ID": 2,
+        "RecipeName" : "General Tsao's Chicken",
+        "Type": "Dinner",
+        "Cuisine": "Chinese",
+        "Restrictions": ["Dairy"],
+        "Ingredients": ["chicken", "milk", "eggs", "soy sauce", "hot sauce"]
+    },
+    {
+        "ID": 3,
+        "RecipeName" : "Pancakes",
+        "Type": "Breakfast",
+        "Cuisine": "American",
+        "Restrictions": ["Dairy"],
+        "Ingredients": ["eggs", "milk", "flour"]
+    },
+    {
+        "ID": 4,
+        "RecipeName" : "Pancakes",
+        "Type": "Breakfast",
+        "Cuisine": "American",
+        "Restrictions": ["Dairy"],
+        "Ingredients": ["eggs", "milk", "flour"]
+    },
+    {
+        "ID": 5,
+        "RecipeName" : "Pancakes",
+        "Type": "Breakfast",
+        "Cuisine": "American",
+        "Restrictions": ["Dairy"],
+        "Ingredients": ["eggs", "milk", "flour"]
+    },
+    {
+        "ID": 6,
+        "RecipeName" : "Pancakes",
+        "Type": "Breakfast",
+        "Cuisine": "American",
+        "Restrictions": ["Dairy"],
+        "Ingredients": ["eggs", "milk", "flour"]
+    },
+    {
+        "ID": 7,
+        "RecipeName" : "Pancakes",
+        "Type": "Breakfast",
+        "Cuisine": "American",
+        "Restrictions": ["Dairy"],
+        "Ingredients": ["eggs", "milk", "flour"]
+    },
+    {
+        "ID": 8,
+        "RecipeName" : "Pancakes",
+        "Type": "Breakfast",
+        "Cuisine": "American",
+        "Restrictions": ["Dairy"],
+        "Ingredients": ["eggs", "milk", "flour"]
+    },
+    {
+        "ID": 9,
+        "RecipeName" : "Pancakes",
+        "Type": "Breakfast",
+        "Cuisine": "American",
+        "Restrictions": ["Dairy"],
+        "Ingredients": ["eggs", "milk", "flour"]
+    }
+]

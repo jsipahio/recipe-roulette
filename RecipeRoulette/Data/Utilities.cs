@@ -29,5 +29,21 @@ namespace RecipeRoulette.Data
                 throw ex;
             }
         }
+        public static bool WriteJSON<T>(T obj, string filePath)
+        {
+            bool success = false;
+            try
+            {
+                string json = JsonSerializer.Serialize<T>(obj);
+                System.Console.WriteLine(json);
+                File.WriteAllText(filePath, json);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            return success;
+        }
     }
 }

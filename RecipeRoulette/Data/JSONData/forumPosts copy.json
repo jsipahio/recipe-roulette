@@ -1,0 +1,44 @@
+[
+    {
+        "ID": 6,
+        "Author": "Vincent Long",
+        "Title": "Help with Risotto",
+        "Date": "2024-04-02",
+        "NumReplies": 5
+    },
+    {
+        "ID": 5,
+        "Author": "Gracelyn Hoffman",
+        "Title": "Accidentally lit hair on fire HELP",
+        "Date": "2024-04-02",
+        "NumReplies": 10
+    },
+    {
+        "ID": 4,
+        "Author": "Diana Ford",
+        "Title": "Pie Dough Hack (you need this)",
+        "Date": "2024-03-31",
+        "NumReplies": 4
+    },
+    {
+        "ID": 3,
+        "Author": "Jayden Diaz",
+        "Title": "My top 5 favorite ways to cook an egg",
+        "Date": "2024-03-29",
+        "NumReplies": 6
+    },
+    {
+        "ID": 2,
+        "Author": "Gabe Watkins",
+        "Title": "My pizza dough won't rise (am i stupid?)",
+        "Date": "2024-03-28",
+        "NumReplies": 3
+    },
+    {
+        "ID": 1,
+        "Author": "Isla Floyd",
+        "Title": "Making Eggs Benny the first time! (wish me luck :))",
+        "Date": "2024-03-25",
+        "NumReplies": 9
+    }
+]
