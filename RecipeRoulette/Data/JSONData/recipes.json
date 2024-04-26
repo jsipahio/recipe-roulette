@@ -4,71 +4,79 @@
         "RecipeName" : "Pancakes",
         "Type": "Breakfast",
         "Cuisine": "American",
-        "Restrictions": ["Dairy"],
+        "Restrictions": ["Dairy", "Gluten", "NotVegan"],
         "Ingredients": ["eggs", "milk", "flour"]
     },
-    {
+	{
         "ID": 2,
-        "RecipeName" : "General Tsao's Chicken",
-        "Type": "Dinner",
-        "Cuisine": "Chinese",
-        "Restrictions": ["Dairy"],
-        "Ingredients": ["chicken", "milk", "eggs", "soy sauce", "hot sauce"]
+        "RecipeName" : "No-Bake Cereal Bars",
+        "Type": "Breakfast",
+        "Cuisine": "American",
+        "Restrictions": ["Nuts", "Gluten"],
+        "Ingredients": ["cereal", "peanut butter", "sugar", "corn syrup"]
     },
     {
         "ID": 3,
-        "RecipeName" : "Pancakes",
-        "Type": "Breakfast",
-        "Cuisine": "American",
-        "Restrictions": ["Dairy"],
-        "Ingredients": ["eggs", "milk", "flour"]
+        "RecipeName" : "General Tsao's Chicken",
+        "Type": "Dinner",
+        "Cuisine": "Asian",
+        "Restrictions": ["Dairy", "NotVegan"],
+        "Ingredients": ["chicken", "milk", "eggs", "soy sauce", "hot sauce"]
     },
     {
         "ID": 4,
-        "RecipeName" : "Pancakes",
-        "Type": "Breakfast",
-        "Cuisine": "American",
-        "Restrictions": ["Dairy"],
-        "Ingredients": ["eggs", "milk", "flour"]
+        "RecipeName" : "Pasta Salad",
+        "Type": "Lunch",
+        "Cuisine": "Italian",
+        "Restrictions": ["Gluten", "NotVegan"],
+        "Ingredients": ["pasta", "italian dressing", "tomatoes", "cucumbers", "cheese"]
     },
     {
         "ID": 5,
-        "RecipeName" : "Pancakes",
-        "Type": "Breakfast",
-        "Cuisine": "American",
-        "Restrictions": ["Dairy"],
-        "Ingredients": ["eggs", "milk", "flour"]
+        "RecipeName" : "Crispy Chicken Tacos",
+        "Type": "Dinner",
+        "Cuisine": "Mexican",
+        "Restrictions": ["Gluten", "NotVegan"],
+        "Ingredients": ["chicken", "sour cream", "taco seasoning", "salt", "tortillas", "cheese"]
     },
     {
         "ID": 6,
-        "RecipeName" : "Pancakes",
-        "Type": "Breakfast",
+        "RecipeName" : "Pinwheel Sandwiches",
+        "Type": "Lunch",
         "Cuisine": "American",
-        "Restrictions": ["Dairy"],
-        "Ingredients": ["eggs", "milk", "flour"]
+        "Restrictions": ["Dairy", "Gluten", "NotVegan"],
+        "Ingredients": ["mayonnaise", "ranch", "tortillas", "cheese", "ham", "turkey", "lettuce"]
     },
     {
         "ID": 7,
-        "RecipeName" : "Pancakes",
-        "Type": "Breakfast",
-        "Cuisine": "American",
-        "Restrictions": ["Dairy"],
-        "Ingredients": ["eggs", "milk", "flour"]
+        "RecipeName" : "Cucumber with Chili Oil",
+        "Type": "Side",
+        "Cuisine": "Asian",
+        "Restrictions": [""],
+        "Ingredients": ["cucumber", "garlic", "sugar", "rice vinegar", "salt", "pepper", "soy sauce", "hot chili oil"]
     },
     {
         "ID": 8,
-        "RecipeName" : "Pancakes",
-        "Type": "Breakfast",
-        "Cuisine": "American",
-        "Restrictions": ["Dairy"],
-        "Ingredients": ["eggs", "milk", "flour"]
+        "RecipeName" : "Bruschetta",
+        "Type": "Side",
+        "Cuisine": "Italian",
+        "Restrictions": ["Gluten"],
+        "Ingredients": ["tomatoes", "garlic", "salt", "pepper", "basil", "balsamic vinegar", "oil", "bread"]
     },
     {
         "ID": 9,
-        "RecipeName" : "Pancakes",
-        "Type": "Breakfast",
-        "Cuisine": "American",
-        "Restrictions": ["Dairy"],
-        "Ingredients": ["eggs", "milk", "flour"]
+        "RecipeName" : "Gulab Jamun",
+        "Type": "Dessert",
+        "Cuisine": "Indian",
+        "Restrictions": ["Dairy", "NotVegan"],
+        "Ingredients": ["milk powder", "flour", "baking powder", "ghee", "milk", "sugar"]
+    },
+    {
+        "ID": 10,
+        "RecipeName" : "Tiramisu",
+        "Type": "Dessert",
+        "Cuisine": "Italian",
+        "Restrictions": ["Dairy", "NotVegan"],
+        "Ingredients": ["marscarpone", "eggs", "sugar", "coffee", "ladyfingers", "cocoa powder"]
     }
 ]

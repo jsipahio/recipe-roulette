@@ -8,28 +8,51 @@
     <div class="col-2">
         <strong>Type of Meal</strong>
         <ul>
-            <li><InputCheckbox @bind-Value="type.All"></InputCheckbox>All</li>
             <li><InputCheckbox @bind-Value="type.Breakfast"></InputCheckbox>Breakfast</li>
             <li><InputCheckbox @bind-Value="type.Lunch"></InputCheckbox>Lunch</li>
+            <li><InputCheckbox @bind-Value="type.Dinner"></InputCheckbox>Dinner</li>
+            <li><InputCheckbox @bind-Value="type.Side"></InputCheckbox>Side</li>
+            <li><InputCheckbox @bind-Value="type.Dessert"></InputCheckbox>Dessert</li>
         </ul>
         <strong>Dietary Restrictions</strong>
         <ul>
-            <li><InputCheckbox @bind-Value="diet.None"></InputCheckbox>None</li>
             <li><InputCheckbox @bind-Value="diet.Vegan"></InputCheckbox>Vegan</li>
             <li><InputCheckbox @bind-Value="diet.Dairy"></InputCheckbox>Lactose Intolerant</li>
+            <li><InputCheckbox @bind-Value="diet.Nuts" ></InputCheckbox>Nuts</li>
+            <li><InputCheckbox @bind-Value="diet.Gluten" ></InputCheckbox>Gluten Free</li>
         </ul>
     </div>
     <div class="col-2">
         <strong>Cuisine</strong>
         <ul>
-            <li><InputCheckbox @bind-Value="cuisine.All"></InputCheckbox>All</li>
             <li><InputCheckbox @bind-Value="cuisine.American"></InputCheckbox>American</li>
-            <li><InputCheckbox @bind-Value="cuisine.Chinese"></InputCheckbox>Chinese</li>
+            <li><InputCheckbox @bind-Value="cuisine.Asian"></InputCheckbox>Asian</li>
+            <li><InputCheckbox @bind-Value="cuisine.Indian"></InputCheckbox>Indian</li>
+            <li><InputCheckbox @bind-Value="cuisine.Italian"></InputCheckbox>Italian</li>
+            <li><InputCheckbox @bind-Value="cuisine.Mexican"></InputCheckbox>Mexican</li>
         </ul>
     </div>
     <div class="col-4">
         <div id="wheel-container"><div id="pointer"></div></div>
-        <div id="wheel"></div>
+        <div id="wheel">
+            @if(_filteredRecipes != null && _filteredRecipes.Count > 0){
+            <div class="r-1" style="top: 14%;left: 20%;position: absolute;font-weight:bold;width:30%">@_filteredRecipes[0 % _filteredRecipes.Count].RecipeName</div>
+            <div class="r-2" style="top: 14%;left: 55%;position: absolute;font-weight:bold;width:30%">@_filteredRecipes[1 % _filteredRecipes.Count].RecipeName</div>
+            <div class="r-3" style="top: 35%;left: 7%;position: absolute;font-weight:bold;width:30%">@_filteredRecipes[2 % _filteredRecipes.Count].RecipeName</div>
+            <div class="r-4" style="top: 67%;left: 24%;position: absolute;font-weight:bold;width:30%">@_filteredRecipes[3 % _filteredRecipes.Count].RecipeName</div>
+            <div class="r-5" style="top: 62%;left: 55%;position: absolute;font-weight:bold;width:30%">@_filteredRecipes[4 % _filteredRecipes.Count].RecipeName</div>
+            <div class="r-6" style="top: 40%;left: 70%;position: absolute;font-weight:bold;width:30%">@_filteredRecipes[5 % _filteredRecipes.Count].RecipeName</div>
+
+            }
+            else{
+            <div class="r-1">word</div>
+            <div class="r-2">word</div>
+            <div class="r-3">word</div>
+            <div class="r-4">word</div>
+            <div class="r-5">word</div>
+            <div class="r-6">word</div>
+            }
+        </div>
     </div>
     <div class="col-4">
         <button class="btn btn-danger" @onclick="@SpinWheel">Spin!</button>

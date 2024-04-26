@@ -29,6 +29,15 @@ namespace RecipeRoulette.Data
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Converts object or list of objects
+        /// Creates or overwrites file at filePath with new JSON data
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static bool WriteJSON<T>(T obj, string filePath)
         {
             bool success = false;

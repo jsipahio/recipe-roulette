@@ -1,9 +1,17 @@
+@inject NavigationManager nav;
+
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item nav-item-active p-2">
+                <li class="@NavItemClasses.Home" @onclick=@(()=>UpdateActiveLink("/")) >
                     <NavLink class="nav-link" href="/" style="color: black; font-weight: bold">Home</NavLink>
+                </li>
+                <li class="@NavItemClasses.MealPlanner" @onclick=@(()=>UpdateActiveLink("mealplanner"))>
+                    <NavLink class="nav-link" href="mealplanner" style="color: black; font-weight: bold">Meal Planner</NavLink>
+                </li>
+                <li class="@NavItemClasses.Reviews" @onclick=@(()=>UpdateActiveLink("reviews"))>
+                    <NavLink class="nav-link" href="reviews" style="color: black; font-weight: bold">Reviews</NavLink>
                 </li>
                 <li class="nav-item p-2">
                     <NavLink class="nav-link" href="example" style="color: black; font-weight: bold">Example</NavLink>
@@ -11,10 +19,50 @@
                 <li class="nav-item p-2">
                     <NavLink class="nav-link" href="counter" style="color: black; font-weight: bold">Counter</NavLink>
                 </li>
-                <li class="nav-item p-2">
+                <li class="@NavItemClasses.Forum" @onclick=@(()=>UpdateActiveLink("forum"))>
                     <NavLink class="nav-link" href="forum" style="color: black; font-weight: bold">Forum</NavLink>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+@code {
+    internal struct NavItemClasses {
+        internal static string Base = "nav-item p-2";
+        internal static string Active = "nav-item p-2 nav-item-active";
+        internal static string Home = Base;
+        internal static string MealPlanner = Base;
+        internal static string Reviews = Base;
+        internal static string Forum = Base;
+        public NavItemClasses(){
+        }
+    }
+    // i'm sure there is a much cleaner way to do this but i'm lazy
+    private void UpdateActiveLink(string clickedLink) {
+        if (clickedLink == "/") {
+            NavItemClasses.Home = NavItemClasses.Active; 
+        }
+        else {
+            NavItemClasses.Home = NavItemClasses.Base;
+        }
+        if (clickedLink == "mealplanner") {
+            NavItemClasses.MealPlanner = NavItemClasses.Active; 
+        }
+        else {
+            NavItemClasses.MealPlanner = NavItemClasses.Base;
+        }
+        if (clickedLink == "reviews") {
+            NavItemClasses.Reviews = NavItemClasses.Active; 
+        }
+        else {
+            NavItemClasses.Reviews = NavItemClasses.Base;
+        }
+        if (clickedLink == "forum") {
+            NavItemClasses.Forum = NavItemClasses.Active; 
+        }
+        else {
+            NavItemClasses.Forum = NavItemClasses.Base;
+        }
+    }
+}

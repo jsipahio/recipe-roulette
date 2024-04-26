@@ -2,23 +2,43 @@
 
 <PageTitle>Community Forum</PageTitle>
 
-<h4>Cooking Help, Hacks, and Culinary Adventures</h4>
-<button type="button" class="button btn-success" @onclick=ToggleInputForm>New Post</button>
+<div class="row">
+    <div class="col-8">
+        <h4>Cooking Help, Hacks, and Culinary Adventures</h4>
+    </div>
+    <div class="col-4">
+        Search: 
+        <InputText @bind-Value=searchText @onkeyup=HandleKeyUp />
+        <button role="button" class="btn btn-info" @onclick=FilterPosts>Search</button>
+        <button type="button" class="btn btn-success" @onclick=ToggleInputForm>New Post</button>
+    </div>
+</div>
 @if(!_hideInputForm)
 {
-    <div>
-        Title of Post: 
-        <InputText @bind-Value=inputModel.Title></InputText>
-        Name of Author: 
-        <InputText @bind-Value=inputModel.Author></InputText>
-        <div class="mt-auto">
-            Post Text: 
-            <InputTextArea @bind-Value=description />
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-2">
+            Title of Post: 
+            <InputText @bind-Value=inputModel.Title></InputText>
         </div>
-        <button role="button" class="button button-warning" @onclick=SavePost>Save</button>
+        <div class="col-2">
+            Name of Author: 
+            <InputText @bind-Value=inputModel.Author></InputText>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+            <div class="mt-auto">
+                Post Text: 
+                <InputTextArea @bind-Value=description />
+                <div>
+                    <button role="button" class="btn btn-warning" @onclick=SavePost>Save</button>
+                </div>
+            </div>
+        </div>
+    </div> 
 }
-
 <table class="table table-striped">
     <thead>
         <tr>
@@ -29,7 +49,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach(var post in _forumPostMgr.ForumPosts)
+    @foreach(var post in _filteredPosts)
     {
         <tr>
             <td>@(post.Title)</td>

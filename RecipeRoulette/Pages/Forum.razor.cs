@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Components.Web;
 using RecipeRoulette.Data.Access;
 using RecipeRoulette.Data.Models;
 
@@ -9,18 +10,15 @@ namespace RecipeRoulette.Pages
         private ForumPostModel inputModel;
         // description gets discarded as entire forum post is not part of project
         private string description;
+        private string searchText;
         // create manager for data
         private ForumPostManager _forumPostMgr;
-        // create a variable to hold the specific data being displayed
-        //private ExampleModel _example;
-        // constructor that is called when page is loaded
+        private List<ForumPostModel> _filteredPosts;
         public Forum()
         {
-            // create instance of example manager
             _forumPostMgr = new ForumPostManager();
-            // set single example equal to the first (and only) examplemodel object in the list
-            //_example = _exampleMgr.Examples.ElementAt<ExampleModel>(0);
             inputModel = new ForumPostModel();
+            _filteredPosts = new List<ForumPostModel>(_forumPostMgr.ForumPosts);
         }
         private void ToggleInputForm()
         {
@@ -30,6 +28,18 @@ namespace RecipeRoulette.Pages
         private void SavePost()
         {
             _forumPostMgr.AddForumPost(inputModel);
+        }
+        private void FilterPosts(){
+            if (string.IsNullOrEmpty(searchText)){
+                _filteredPosts = new List<ForumPostModel>(_forumPostMgr.ForumPosts);
+                return;
+            }
+            _filteredPosts = _forumPostMgr.ForumPosts.Where(x => x.Title.ToLower().Contains(searchText.ToLower())).ToList();
+        }
+        private void HandleKeyUp(KeyboardEventArgs e){
+            if (e.Key == "Enter"){
+                FilterPosts();
+            }
         }
     }
 }

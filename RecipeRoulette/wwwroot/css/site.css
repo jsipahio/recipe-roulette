@@ -110,6 +110,42 @@ a, .btn-link {
     left: 0;
 }
 
+.r-1 {
+    top: 17%;
+    left: 25%;
+    position: absolute;
+}
+
+.r-2 {
+    top: 17%;
+    left: 60%;
+    position: absolute;
+}
+
+.r-3 {
+    top: 45%;
+    left: 15%;
+    position: absolute;
+}
+
+.r-4 {
+    top: 67%;
+    left: 25%;
+    position: absolute;
+}
+
+.r-5 {
+    top: 67%;
+    left: 60%;
+    position: absolute;
+}
+
+.r-6 {
+    top: 45%;
+    left: 75%;
+    position: absolute;
+}
+
 #pointer {
     position: relative;
     top: 122px;
