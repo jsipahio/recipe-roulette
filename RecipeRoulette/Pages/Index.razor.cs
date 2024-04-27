@@ -37,6 +37,7 @@ namespace RecipeRoulette.Pages
             public bool Gluten { get; set; } = false;
         }
         #endregion
+        private bool showWarning = false;
         private int rotationStart = 0;
         public Type type = new Type();
         public Cuisine cuisine = new Cuisine();
@@ -48,13 +49,45 @@ namespace RecipeRoulette.Pages
             string startRotation = rotationStart.ToString() + "deg";
             string endRotation = end.ToString() + "deg";
             js.InvokeVoidAsync("spinWheel", startRotation, endRotation);
+            int angle = (end) % 360 ;
             rotationStart = end;
-            GetRecipe();
+            Console.WriteLine(end);
+            Console.WriteLine(angle);
+            Console.WriteLine(AngleToIndex(angle));
+            GetRecipe(AngleToIndex(angle));
         }
-        private void GetRecipe()
+        private int AngleToIndex(int angle){
+            if (angle >=0 && angle < 60) {
+                return 5;
+            }
+            else if(angle >= 60 && angle < 120) {
+                return 4;
+            }
+            else if(angle >= 120 && angle < 180) {
+                return 3;
+            }
+            else if(angle >= 180 && angle < 240) {
+                return 2;
+            }
+            else if(angle >= 240 && angle < 300) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+        private void GetRecipe(int index)
         {
-            Random r = new Random();
+            System.Threading.Thread.Sleep(2300);
+            //Random r = new Random();
+            //int index = r.Next(_filteredRecipes.Count);
+            Console.WriteLine(index % _filteredRecipes.Count);
+            recipe = _filteredRecipes[index % _filteredRecipes.Count];
+        }
+        private void FilterRecipes()
+        {
             List<RecipeModel> filteredRecipes = new List<RecipeModel>();
+            _filteredRecipes = new List<RecipeModel>();
             filteredRecipes.AddRange(_recipeMgr.Recipes);
             List<string> restrictions = GetRestrictions();
             foreach(string restr in restrictions){
@@ -64,20 +97,26 @@ namespace RecipeRoulette.Pages
             }
             List<string> types = GetTypes();
             foreach(string type in types){
-                filteredRecipes.RemoveAll(x => x.Type != type);
+                _filteredRecipes.AddRange(filteredRecipes.Where(x => x.Type == type));
+                //filteredRecipes.RemoveAll(x => x.Type != type);
             }
             List<string> cuisines = GetCuisines();
             foreach(string cuisine in cuisines) {
-                filteredRecipes.RemoveAll(x => x.Cuisine != cuisine);
+                _filteredRecipes.AddRange(filteredRecipes.Where(_x => _x.Cuisine == cuisine));
+                //filteredRecipes.RemoveAll(x => x.Cuisine != cuisine);
             }
             foreach(var recipe in filteredRecipes){
                 Console.WriteLine(recipe.RecipeName);
             }
             Console.WriteLine(filteredRecipes.Count);
-            int index = r.Next(filteredRecipes.Count);
-            _filteredRecipes = filteredRecipes;
-            System.Threading.Thread.Sleep(2000);
-            recipe = filteredRecipes[index];
+            //_filteredRecipes = filteredRecipes;
+            if (_filteredRecipes.Count < 1){
+                showWarning = true;
+            }
+            else{
+                showWarning = false;
+            }
+            StateHasChanged();
         }
         private List<string> GetRestrictions()
         {
@@ -144,6 +183,5 @@ namespace RecipeRoulette.Pages
             _recipeMgr = new RecipeManager();
             _filteredRecipes = new List<RecipeModel>(_recipeMgr.Recipes);
         }
-
     }
 }

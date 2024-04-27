@@ -3,17 +3,26 @@
 <PageTitle>Meal Planner</PageTitle>
 
 <div class="row">
-    <div class="col-6" style="text-align: center;">
-        <br><br>
-        <h4>Click a day to create your perfect meal plan!</h4>
-        <br><br>
-
-        <h3><u>Your Meals:</u></h3>
-        <!-- {@recipeMgr.Recipes[0].RecipeName} -->
-
-        <h3><u>Discover Something New:</u></h3>
+<div class="col-1"></div>
+    <div class="col-4" style="text-align: center;">
+        <br>
+        <h4>Click a day to create your perfect meal plan! <button type="button" class="helpButton" @onclick=ToggleHelpForm>?</button></h4>
+        @if(!_hideHelpForm) {
+            <div class="helpBox">To start crafting your meal plan, first click a recipe on the left and then click a day in the calendar to add it.</div>
+        }
+        <br>
+        <h3><strong><u>Your Meals:</u></strong></h3>
+            <div class="meal" @onclick="e=>UpdateSelectedRecipe(_recipeMgr.Recipes[1].RecipeName)">@_recipeMgr.Recipes[1].RecipeName</div>
+            <div class="meal" @onclick="e=>UpdateSelectedRecipe(_recipeMgr.Recipes[4].RecipeName)">@_recipeMgr.Recipes[4].RecipeName</div>
+            <div class="meal" @onclick="e=>UpdateSelectedRecipe(_recipeMgr.Recipes[5].RecipeName)">@_recipeMgr.Recipes[5].RecipeName</div>
+        <br>    
+        <h3><strong><u>Discover Something New:</u></strong></h3>
+            <div class="meal" @onclick="e=>UpdateSelectedRecipe(_recipeMgr.Recipes[8].RecipeName)">@_recipeMgr.Recipes[8].RecipeName</div>
+            <div class="meal" @onclick="e=>UpdateSelectedRecipe(_recipeMgr.Recipes[2].RecipeName)">@_recipeMgr.Recipes[2].RecipeName</div>
+            <div class="meal" @onclick="e=>UpdateSelectedRecipe(_recipeMgr.Recipes[9].RecipeName)">@_recipeMgr.Recipes[9].RecipeName</div>
 
     </div>
+    <div class="col-1"></div>
 
     <div class="col-6">
         <table style="bgcolor:lightgrey; align: center" cellspacing="21" cellpadding="20">
@@ -38,46 +47,46 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
+                    <td @onclick="e=>UpdateMeal(1)">1<br>@meals[0]</td>
+                    <td @onclick="e=>UpdateMeal(2)">2<br>@meals[1]</td>
+                    <td @onclick="e=>UpdateMeal(3)">3<br>@meals[2]</td>
+                    <td @onclick="e=>UpdateMeal(4)">4<br>@meals[3]</td>
                 </tr>
                 <tr></tr>
                 <tr>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
+                    <td @onclick="e=>UpdateMeal(5)">5<br>@meals[4]</td>
+                    <td @onclick="e=>UpdateMeal(6)">6<br>@meals[5]</td>
+                    <td @onclick="e=>UpdateMeal(7)">7<br>@meals[6]</td>
+                    <td @onclick="e=>UpdateMeal(8)">8<br>@meals[7]</td>
+                    <td @onclick="e=>UpdateMeal(9)">9<br>@meals[8]</td>
+                    <td @onclick="e=>UpdateMeal(10)">10<br>@meals[9]</td>
+                    <td @onclick="e=>UpdateMeal(11)">11<br>@meals[10]</td>
                 </tr>
                 <tr>
-                    <td>12</td>
-                    <td>13</td>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                    <td>17</td>
-                    <td>18</td>
+                    <td @onclick="e=>UpdateMeal(12)">12<br>@meals[11]</td>
+                    <td @onclick="e=>UpdateMeal(13)">13<br>@meals[12]</td>
+                    <td @onclick="e=>UpdateMeal(14)">14<br>@meals[13]</td>
+                    <td @onclick="e=>UpdateMeal(15)">15<br>@meals[14]</td>
+                    <td @onclick="e=>UpdateMeal(16)">16<br>@meals[15]</td>
+                    <td @onclick="e=>UpdateMeal(17)">17<br>@meals[16]</td>
+                    <td @onclick="e=>UpdateMeal(18)">18<br>@meals[17]</td>
                 </tr>
                 <tr>
-                    <td>19</td>
-                    <td>20</td>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>23</td>
-                    <td>24</td>
-                    <td>25</td>
+                    <td @onclick="e=>UpdateMeal(19)">19<br>@meals[18]</td>
+                    <td @onclick="e=>UpdateMeal(20)">20<br>@meals[19]</td>
+                    <td @onclick="e=>UpdateMeal(21)">21<br>@meals[20]</td>
+                    <td @onclick="e=>UpdateMeal(22)">22<br>@meals[21]</td>
+                    <td @onclick="e=>UpdateMeal(23)">23<br>@meals[22]</td>
+                    <td @onclick="e=>UpdateMeal(24)">24<br>@meals[23]</td>
+                    <td @onclick="e=>UpdateMeal(25)">25<br>@meals[24]</td>
                 </tr>
                 <tr>
-                    <td>26</td>
-                    <td>27</td>
-                    <td>28</td>
-                    <td>29</td>
-                    <td>30</td>
-                    <td>31</td>
+                    <td @onclick="e=>UpdateMeal(26)">26<br>@meals[25]</td>
+                    <td @onclick="e=>UpdateMeal(27)">27<br>@meals[26]</td>
+                    <td @onclick="e=>UpdateMeal(28)">28<br>@meals[27]</td>
+                    <td @onclick="e=>UpdateMeal(29)">29<br>@meals[28]</td>
+                    <td @onclick="e=>UpdateMeal(30)">30<br>@meals[29]</td>
+                    <td @onclick="e=>UpdateMeal(31)">31<br>@meals[30]</td>
                     <td></td>
                 </tr>
             </tbody>
