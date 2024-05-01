@@ -42,7 +42,7 @@
     </div>
     <div class="col-4">
         <div id="wheel-container"><div id="pointer"></div></div>
-        <div id="wheel" class="">
+        <div id="wheel" class="@_wheelClass" style="@_wheelStyle">
             @if(_filteredRecipes != null && _filteredRecipes.Count > 0){
             <div style="top: 5%;left: 40%;position: absolute;font-weight:bold;width:30%">@_filteredRecipes[4 % _filteredRecipes.Count].RecipeName</div>@*30-90*@
             <div style="top: 25%;left: 65%;position: absolute;font-weight:bold;width:30%">@_filteredRecipes[5 % _filteredRecipes.Count].RecipeName</div>@*90-150*@
@@ -53,17 +53,17 @@
 
             }
             else{
-            <div class="r-1">word</div>
-            <div class="r-2">word</div>
-            <div class="r-3">word</div>
-            <div class="r-4">word</div>
-            <div class="r-5">word</div>
-            <div class="r-6">word</div>
+            <div class="r-1"></div>
+            <div class="r-2"></div>
+            <div class="r-3"></div>
+            <div class="r-4"></div>
+            <div class="r-5"></div>
+            <div class="r-6"></div>
             }
         </div>
     </div>
     <div class="col-4">
-        <button class="btn btn-danger" @onclick="@SpinWheel">Spin!</button>
+        <button class="btn btn-danger" @onclick="@SpinWheel" disabled="@_disableButton">Spin!</button>
         <div>
             <strong>Tonights recipe is!:</strong><br>
                 @if(recipe != null){

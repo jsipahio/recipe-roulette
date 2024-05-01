@@ -42,19 +42,28 @@ namespace RecipeRoulette.Pages
         public Type type = new Type();
         public Cuisine cuisine = new Cuisine();
         public Diet diet = new Diet();
-        private void SpinWheel()
+        private string _wheelClass = "";
+        private string _wheelStyle = "rotate: 0deg;";
+        private bool _disableButton = false;
+        private async void SpinWheel()
         {
+            _disableButton = true;
             Random r = new Random();
             int end = r.Next(720) + rotationStart + 360;
             string startRotation = rotationStart.ToString() + "deg";
             string endRotation = end.ToString() + "deg";
-            js.InvokeVoidAsync("spinWheel", startRotation, endRotation);
+            await js.InvokeVoidAsync("spinWheel", startRotation, endRotation);
+            StateHasChanged();
             int angle = (end) % 360 ;
             rotationStart = end;
             Console.WriteLine(end);
             Console.WriteLine(angle);
             Console.WriteLine(AngleToIndex(angle));
-            GetRecipe(AngleToIndex(angle));
+            await Task.Run(() =>{
+                GetRecipe(AngleToIndex(angle));
+            });
+            _disableButton = false;
+            StateHasChanged();
         }
         private int AngleToIndex(int angle){
             if (angle >=0 && angle < 60) {
@@ -78,11 +87,16 @@ namespace RecipeRoulette.Pages
         }
         private void GetRecipe(int index)
         {
+            _wheelClass = "animate-wheel";
+            InvokeAsync(StateHasChanged);
             System.Threading.Thread.Sleep(2300);
             //Random r = new Random();
             //int index = r.Next(_filteredRecipes.Count);
             Console.WriteLine(index % _filteredRecipes.Count);
             recipe = _filteredRecipes[index % _filteredRecipes.Count];
+            _wheelStyle = string.Format("rotate: {0}deg;", rotationStart);
+            System.Threading.Thread.Sleep(500);
+            _wheelClass = "";
         }
         private void FilterRecipes()
         {
@@ -96,19 +110,35 @@ namespace RecipeRoulette.Pages
                 Console.WriteLine(x);
             }
             List<string> types = GetTypes();
-            foreach(string type in types){
-                _filteredRecipes.AddRange(filteredRecipes.Where(x => x.Type == type));
-                //filteredRecipes.RemoveAll(x => x.Type != type);
+            Console.WriteLine(types.Count);
+            if (types.Count  < 1) {
+                Console.WriteLine(types.Count);
+                _filteredRecipes.AddRange(filteredRecipes);
+            }
+            else {
+                _filteredRecipes.Clear();
+                foreach(string type in types){
+                    _filteredRecipes.AddRange(filteredRecipes.Where(x => x.Type == type));
+                    //filteredRecipes.RemoveAll(x => x.Type != type);
+                }
             }
             List<string> cuisines = GetCuisines();
-            foreach(string cuisine in cuisines) {
-                _filteredRecipes.AddRange(filteredRecipes.Where(_x => _x.Cuisine == cuisine));
-                //filteredRecipes.RemoveAll(x => x.Cuisine != cuisine);
+            if (cuisines.Count < 1) {
+                _filteredRecipes.AddRange(_filteredRecipes);
             }
-            foreach(var recipe in filteredRecipes){
+            else {
+                filteredRecipes.Clear();
+                filteredRecipes.AddRange(_filteredRecipes);
+                _filteredRecipes.Clear();
+                foreach(string cuisine in cuisines) {
+                    _filteredRecipes.AddRange(filteredRecipes.Where(_x => _x.Cuisine == cuisine));
+                    //filteredRecipes.RemoveAll(x => x.Cuisine != cuisine);
+                }
+            }
+            foreach(var recipe in _filteredRecipes){
                 Console.WriteLine(recipe.RecipeName);
             }
-            Console.WriteLine(filteredRecipes.Count);
+            Console.WriteLine(_filteredRecipes.Count);
             //_filteredRecipes = filteredRecipes;
             if (_filteredRecipes.Count < 1){
                 showWarning = true;
@@ -154,6 +184,7 @@ namespace RecipeRoulette.Pages
             if (type.Side) {
                 types.Add("Side");
             }
+            Console.WriteLine(types.Count);
             return types;
         }
         private List<string> GetCuisines(){

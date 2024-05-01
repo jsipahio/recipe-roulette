@@ -15,12 +15,12 @@
                 </li>
                 <li class="@NavItemClasses.Reviews" @onclick=@(()=>UpdateActiveLink("reviews"))>
                     <NavLink class="nav-link" href="reviews" style="color: black; font-weight: bold">Reviews</NavLink>
-                </li>
-                <li class="nav-item p-2">
-                    <NavLink class="nav-link" href="example" style="color: black; font-weight: bold">Example</NavLink>
-                </li>
-                <li class="nav-item p-2">
-                    <NavLink class="nav-link" href="counter" style="color: black; font-weight: bold">Counter</NavLink>
+               </li>
+                <li class="@NavItemClasses.RecipeGenerator" @onclick=@(()=>UpdateActiveLink("recipegenerator"))>
+                    <NavLink class="nav-link" href="recipegenerator" style="color: black; font-weight: bold">Recipe Generator</NavLink>
+                 </li>
+                <li class="@NavItemClasses.Challenges" @onclick=@(()=>UpdateActiveLink("challenges"))>
+                    <NavLink class="nav-link" href="challenges" style="color: black; font-weight: bold">Challenges</NavLink>
                 </li>
                 <li class="@NavItemClasses.Forum" @onclick=@(()=>UpdateActiveLink("forum"))>
                     <NavLink class="nav-link" href="forum" style="color: black; font-weight: bold">Forum</NavLink>
@@ -39,6 +39,8 @@
         internal static string Reviews = Base;
         internal static string Forum = Base;
         internal static string IngredientSearch = Base;
+        internal static string RecipeGenerator = Base;
+        internal static string Challenges = Base;
         public NavItemClasses(){
         }
     }
@@ -69,6 +71,18 @@
             NavItemClasses.Forum = NavItemClasses.Base;
         }
         if(clickedLink == "ingredientsearch"){
+            NavItemClasses.IngredientSearch = NavItemClasses.Active;
+        }
+        else{
+            NavItemClasses.IngredientSearch = NavItemClasses.Base;
+        }
+        if(clickedLink == "recipegenerator"){
+            NavItemClasses.IngredientSearch = NavItemClasses.Active;
+        }
+        else{
+            NavItemClasses.IngredientSearch = NavItemClasses.Base;
+        }
+        if(clickedLink == "challenges"){
             NavItemClasses.IngredientSearch = NavItemClasses.Active;
         }
         else{
