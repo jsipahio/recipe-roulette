@@ -10,6 +10,9 @@
                 <li class="@NavItemClasses.MealPlanner" @onclick=@(()=>UpdateActiveLink("mealplanner"))>
                     <NavLink class="nav-link" href="mealplanner" style="color: black; font-weight: bold">Meal Planner</NavLink>
                 </li>
+                <li class="@NavItemClasses.IngredientSearch" @onclick=@(()=>UpdateActiveLink("ingredientsearch"))>
+                    <NavLink class="nav-link" href="ingredientsearch" style="color: black; font-weight: bold">Ingredient Search</NavLink>
+                </li>
                 <li class="@NavItemClasses.Reviews" @onclick=@(()=>UpdateActiveLink("reviews"))>
                     <NavLink class="nav-link" href="reviews" style="color: black; font-weight: bold">Reviews</NavLink>
                 </li>
@@ -35,6 +38,7 @@
         internal static string MealPlanner = Base;
         internal static string Reviews = Base;
         internal static string Forum = Base;
+        internal static string IngredientSearch = Base;
         public NavItemClasses(){
         }
     }
@@ -63,6 +67,12 @@
         }
         else {
             NavItemClasses.Forum = NavItemClasses.Base;
+        }
+        if(clickedLink == "ingredientsearch"){
+            NavItemClasses.IngredientSearch = NavItemClasses.Active;
+        }
+        else{
+            NavItemClasses.IngredientSearch = NavItemClasses.Base;
         }
     }
 }

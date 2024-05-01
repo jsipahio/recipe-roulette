@@ -1,7 +1,21 @@
+@inject NavigationManager _nav;
+
 <div class="py-2 background gtext-center">
     <div class="px-5">
-        <h1 class="cover display-5">Recipe Roulette</h1>
-        <h3 class="cover display-7">Unleash your inner chef!</h3>
+        <div class="row">
+            <div class="col-4">
+                <h1 class="cover display-5">Recipe Roulette</h1>
+                <h3 class="cover display-7">Unleash your inner chef!</h3>
+            </div>
+            <div class="col-6"></div>
+            <div class="col-1">
+                <div class="btn-group">
+                    <button class="btn btn-info" @onclick="NavigateToLogin">Login</button>
+                    <button class="btn btn-info" @onclick="NavigateToSignUp">Signup</button>
+                </div>
+                </div>
+            <div class="col-1"></div>
+        </div>
         <div class="py-5">
             <div class="p-2">
                 <div class="p-5"></div>
@@ -9,3 +23,12 @@
         </div>
     </div>
 </div>
+
+@code {
+    void NavigateToLogin() {
+        _nav.NavigateTo("login");
+    }
+    void NavigateToSignUp() {
+        _nav.NavigateTo("signup");
+    }
+}

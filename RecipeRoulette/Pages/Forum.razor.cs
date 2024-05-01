@@ -29,33 +29,45 @@ namespace RecipeRoulette.Pages
         }
         private void SavePost()
         {
+            if (string.IsNullOrEmpty(inputModel.Title)){
+                Console.WriteLine("title is null or empty");
+                _showTitleMsg = true;
+                return;
+            }
+            else{
+                _showTitleMsg = false;
+            }
+            if (string.IsNullOrEmpty(inputModel.Author)){
+                Console.WriteLine("author is null or empty");
+                _showAuthorMsg = true;
+                return;
+            }
+            else{
+                _showAuthorMsg = false;
+            }
             _forumPostMgr.AddForumPost(inputModel);
         }
         private void FilterPosts(){
-            if (string.IsNullOrEmpty(searchText)){
-                _filteredPosts = new List<ForumPostModel>(_forumPostMgr.ForumPosts);
-                return;
+            try {
+                if (string.IsNullOrEmpty(searchText)){
+                    _filteredPosts = new List<ForumPostModel>(_forumPostMgr.ForumPosts);
+                    return;
+                }
+                foreach (var x in _forumPostMgr.ForumPosts){
+                    Console.WriteLine(x.Title);
+                }
+                Console.WriteLine(_forumPostMgr.ForumPosts.Count);
+                _filteredPosts = _forumPostMgr.ForumPosts.Where((x) => {
+                    Console.WriteLine("hello");
+                    return x.Title.ToLower().Contains(searchText.ToLower());}
+                    ).ToList();
             }
-            _filteredPosts = _forumPostMgr.ForumPosts.Where(x => x.Title.ToLower().Contains(searchText.ToLower())).ToList();
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
         }
         private void HandleKeyUp(KeyboardEventArgs e){
             if (e.Key == "Enter"){
-                if (string.IsNullOrEmpty(inputModel.Title)){
-                    Console.WriteLine("title is null or empty");
-                    _showTitleMsg = true;
-                    return;
-                }
-                else{
-                    _showTitleMsg = false;
-                }
-                if (string.IsNullOrEmpty(inputModel.Author)){
-                    Console.WriteLine("author is null or empty");
-                    _showAuthorMsg = true;
-                    return;
-                }
-                else{
-                    _showAuthorMsg = false;
-                }
                 FilterPosts();
             }
         }

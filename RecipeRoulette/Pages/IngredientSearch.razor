@@ -1,0 +1,61 @@
+@page "/ingredientsearch"
+
+<PageTitle>Ingredient Search</PageTitle>
+
+<div class="row">
+    <div class="col-4">
+        <h4>Tell us what ingredients you have</h4>
+        <p>
+            Enter an ingredient you have in the search box and choose the best match from the drop down. 
+            We need a <strong>minimum</strong> of <strong>3 ingredients</strong> to find you some recipes.
+        </p>
+            <InputSelect @bind-Value=chosenIngredientID @bind-Value:after="OnIngredientChange" id = "ingredientDrop">
+                <option value = "">Select an ingredient</option>
+                @foreach(var item in _ingredientsList)
+                {
+                    <option value=@item.ID>@item.Ingredient</option>
+                }                                            
+            </InputSelect>
+            <p>Enter <strong>@count more</strong> ingredients</p>
+    </div>
+    <div class="col-1"></div>
+    <div class = "col-5 mb-3" id = "chosenIngredients">
+        <h4>Your Ingredients</h4>
+        <div id = "chosenIngredientsBox">
+            <ul>
+                @if(_chosenIngredientsList != null)
+                {
+                    @foreach(var item in _chosenIngredientsList)
+                    {
+                        <p>@item.Ingredient</p>    
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="col-5" id = "generatedRecipes">
+        <div class>
+            <h4>Recipes</h4>
+            @if(genRecipe)
+            {
+                @foreach(var recipe in _matchingRecipesList)
+                {
+                    <a href = "">@recipe.RecipeName</a><br>
+                }
+            }
+        </div>
+    </div>
+    <div class = "col-5">
+        @if(count != 0)
+        {
+            <button class="btn btn-danger" id="recipeBtn" disabled>Recipe</button>
+        }
+        else
+        {
+            <button class="btn btn-danger" id="recipeBtn" @onclick=GetRecipe>Recipe</button>
+        }
+    </div>
+</div>
+@code{
+
+}

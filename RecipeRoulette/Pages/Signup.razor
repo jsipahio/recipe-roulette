@@ -1,0 +1,27 @@
+@page "/signup"
+@inject NavigationManager _nav
+
+<PageTitle>Signup</PageTitle>
+<div class="row">
+    <div class='col-8'>
+        <form method = "post" @onsubmit=SignupUser @formname="loginForm">    
+        <h3>Signup</h3>
+        <div class="col-2">
+            <label>Email:</label>
+            <InputText type = "email" @bind-Value=_user.Email></InputText>
+        </div>
+        <div class = "col-2">
+            <label>Password:</label>
+            <InputText type="password" @bind-Value=_user.Password></InputText>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-danger">Sign up</button>
+            <button class="btn btn-light" @onclick="@(()=>_nav.NavigateTo("/login"))">Login</button>
+        </div>
+        </form>
+    </div>
+</div>
+
+@code{
+
+}
