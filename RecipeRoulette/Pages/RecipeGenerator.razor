@@ -1,0 +1,70 @@
+@page "/recipegenerator"
+
+<PageTitle>Recipe Generator</PageTitle>
+
+<div class="row">
+    <div class="col-6">
+        <h4 style="text-align: center;">AI Powered Recipe Generator by Recipe Roulette</h4>
+        <p text-align: center;>
+           Don't know what to make with the random ingredients you have on hand? 
+           Recipe Roulette has you covered! Just enter your <strong>ingredients</strong>, 
+           <strong>dietary restrictions/allergies</strong>, <strong>dish type</strong>, and 
+           <strong>serving size</strong> needed in the boxes below. Then click the 
+           <strong>Recipe button</strong> to let our AI Powered Recipe Generator craft the perfect recipe for your needs!
+        </p>
+            <p><strong>Ingredients on Hand</strong></p>
+            <InputSelect @bind-Value=chosenIngredientID @bind-Value:after="OnIngredientChange" id = "ingredientDrop">
+                <option value = "">Select ingredients</option>
+                @foreach(var item in _ingredientsList)
+                {
+                    <option value=@item.ID>@item.Ingredient</option>
+                }                                            
+            </InputSelect>
+            
+            <p><strong>Allergies/Dietary Restrictions</strong></p>
+            <InputSelect @bind-Value=chosenAllergyID @bind-Value:after="OnAllergyChange" id = "allergyDrop">
+                <option value = "">Select allergy</option>
+                @foreach(var item in _allergyList)
+                {
+                    <option value=@item.ID>@item.Allergy</option>
+                }                                            
+            </InputSelect>
+            
+            <p><strong>Number of Servings Needed</strong></p>
+            <InputSelect @bind-Value=_selectedServing id = "servingDrop">
+                <option value = "">Select number of servings</option>
+                @foreach(var serving in _servingsList)
+                {
+                    <option value=@serving>@serving</option>
+                }                                            
+            </InputSelect>
+           
+            <p><strong>Type of Dish</strong></p>
+            <InputSelect @bind-Value=_selectedType id = "typeDrop">
+                <option value = "">Select dish type</option>
+                @foreach(var type in _mealTypes)
+                {
+                    <option value=@type>@type</option>
+                }                                            
+            </InputSelect>
+            
+    </div> 
+
+    <div style="text-align: center;" class="col-5" id = "generatedRecipes">
+        <div class>
+            <h4>Recipes</h4>
+            @if(genRecipe)
+            {
+                @foreach(var recipe in _matchingRecipesList)
+                {
+                    <a href = "">@recipe.RecipeName</a><br>
+                }
+            }
+        </div>
+    </div>
+    <div class = "col-5">
+        <button class="btn btn-danger" id="recipeBtn" @onclick=GetRecipe>Recipe</button>
+    </div>
+</div>
+@code{
+}

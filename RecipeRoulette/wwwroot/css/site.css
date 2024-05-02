@@ -150,8 +150,8 @@ a, .btn-link {
 
 #pointer {
     position: relative;
-    top: 146px;
-    left:147px;
+    top: 144px;
+    left: 47px;
     width: 0;
 	height: 0;
 	border-top: 5px solid transparent;
@@ -256,6 +256,21 @@ a, .btn-link {
     padding: 10px;
 }
 #ingredientDrop{
+    width: 100%;
+    height: 30px;
+    background-color: #f2f3f3;
+}
+#allergyDrop{
+    width: 100%;
+    height: 30px;
+    background-color: #f2f3f3;
+}
+#servingDrop{
+    width: 100%;
+    height: 30px;
+    background-color: #f2f3f3;
+}
+#typeDrop{
     width: 100%;
     height: 30px;
     background-color: #f2f3f3;

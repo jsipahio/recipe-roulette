@@ -1,0 +1,30 @@
+[
+    {
+        "ID": 41,
+        "Allergy": "Nuts"
+    },
+    {
+        "ID": 42,
+        "Allergy": "tree nuts"
+    },
+    {
+        "ID": 43,
+        "Allergy": "Dairy"
+    },
+    {
+        "ID": 44,
+        "Allergy": "eggs"
+    },
+    {
+        "ID": 45,
+        "Allergy": "soy"
+    },
+    {
+        "ID": 46,
+        "Allergy": "Gluten"
+    },
+    {
+        "ID": 47,
+        "Allergy": "shellfish"
+    }
+    ]

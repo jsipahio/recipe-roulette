@@ -13,6 +13,20 @@ namespace RecipeRoulette.Data.Access
             get { return _recipes; }
             private set { _recipes = value; }
         }
+        public List<string> GetTypes(){
+            try{
+                HashSet<string> output = new HashSet<string>();
+                foreach(var recipe in _recipes) {
+                    output.Add(recipe.Type);
+                }
+                List<string> retval = new List<string>(output.ToList());
+                return retval;
+            }
+            catch(Exception ex) {
+                System.Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
         public RecipeManager(){
 
             _recipes = Utilities.ReadJSON<List<RecipeModel>>(FILEPATH);

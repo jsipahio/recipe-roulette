@@ -40,7 +40,7 @@
             <li><InputCheckbox @bind-Value="cuisine.Mexican" @bind-Value:after="FilterRecipes"  ></InputCheckbox>Mexican</li>
         </ul>
     </div>
-    <div class="col-4">
+    <div class="col-4 d-flex justify-content-center">
         <div id="wheel-container"><div id="pointer"></div></div>
         <div id="wheel" class="@_wheelClass" style="@_wheelStyle">
             @if(_filteredRecipes != null && _filteredRecipes.Count > 0){
@@ -65,7 +65,7 @@
     <div class="col-4">
         <button class="btn btn-danger" @onclick="@SpinWheel" disabled="@_disableButton">Spin!</button>
         <div>
-            <strong>Tonights recipe is!:</strong><br>
+            <strong>Tonight's recipe is!:</strong><br>
                 @if(recipe != null){
                     <strong>
                         @recipe.RecipeName

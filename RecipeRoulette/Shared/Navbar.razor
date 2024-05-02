@@ -46,6 +46,7 @@
     }
     // i'm sure there is a much cleaner way to do this but i'm lazy
     private void UpdateActiveLink(string clickedLink) {
+        Console.WriteLine(clickedLink);
         if (clickedLink == "/") {
             NavItemClasses.Home = NavItemClasses.Active; 
         }
@@ -77,16 +78,17 @@
             NavItemClasses.IngredientSearch = NavItemClasses.Base;
         }
         if(clickedLink == "recipegenerator"){
-            NavItemClasses.IngredientSearch = NavItemClasses.Active;
+            NavItemClasses.RecipeGenerator = NavItemClasses.Active;
         }
         else{
-            NavItemClasses.IngredientSearch = NavItemClasses.Base;
+            NavItemClasses.RecipeGenerator = NavItemClasses.Base;
         }
         if(clickedLink == "challenges"){
-            NavItemClasses.IngredientSearch = NavItemClasses.Active;
+            NavItemClasses.Challenges = NavItemClasses.Active;
         }
         else{
-            NavItemClasses.IngredientSearch = NavItemClasses.Base;
+            NavItemClasses.Challenges = NavItemClasses.Base;
         }
+        StateHasChanged();
     }
 }

@@ -56,9 +56,9 @@ namespace RecipeRoulette.Pages
             StateHasChanged();
             int angle = (end) % 360 ;
             rotationStart = end;
-            Console.WriteLine(end);
-            Console.WriteLine(angle);
-            Console.WriteLine(AngleToIndex(angle));
+            //Console.WriteLine(end);
+            //Console.WriteLine(angle);
+            //Console.WriteLine(AngleToIndex(angle));
             await Task.Run(() =>{
                 GetRecipe(AngleToIndex(angle));
             });
@@ -92,7 +92,7 @@ namespace RecipeRoulette.Pages
             System.Threading.Thread.Sleep(2300);
             //Random r = new Random();
             //int index = r.Next(_filteredRecipes.Count);
-            Console.WriteLine(index % _filteredRecipes.Count);
+            //Console.WriteLine(index % _filteredRecipes.Count);
             recipe = _filteredRecipes[index % _filteredRecipes.Count];
             _wheelStyle = string.Format("rotate: {0}deg;", rotationStart);
             System.Threading.Thread.Sleep(500);
@@ -105,14 +105,14 @@ namespace RecipeRoulette.Pages
             filteredRecipes.AddRange(_recipeMgr.Recipes);
             List<string> restrictions = GetRestrictions();
             foreach(string restr in restrictions){
-                Console.WriteLine(restr);
+                //Console.WriteLine(restr);
                 int x = filteredRecipes.RemoveAll(x => x.Restrictions.Contains(restr));
-                Console.WriteLine(x);
+                //Console.WriteLine(x);
             }
             List<string> types = GetTypes();
-            Console.WriteLine(types.Count);
+            //Console.WriteLine(types.Count);
             if (types.Count  < 1) {
-                Console.WriteLine(types.Count);
+                //Console.WriteLine(types.Count);
                 _filteredRecipes.AddRange(filteredRecipes);
             }
             else {
@@ -136,9 +136,9 @@ namespace RecipeRoulette.Pages
                 }
             }
             foreach(var recipe in _filteredRecipes){
-                Console.WriteLine(recipe.RecipeName);
+                //Console.WriteLine(recipe.RecipeName);
             }
-            Console.WriteLine(_filteredRecipes.Count);
+            //Console.WriteLine(_filteredRecipes.Count);
             //_filteredRecipes = filteredRecipes;
             if (_filteredRecipes.Count < 1){
                 showWarning = true;
@@ -184,7 +184,7 @@ namespace RecipeRoulette.Pages
             if (type.Side) {
                 types.Add("Side");
             }
-            Console.WriteLine(types.Count);
+            //Console.WriteLine(types.Count);
             return types;
         }
         private List<string> GetCuisines(){

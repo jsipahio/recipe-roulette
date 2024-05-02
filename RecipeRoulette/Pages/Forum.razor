@@ -3,7 +3,7 @@
 <PageTitle>Community Forum</PageTitle>
 
 <div class="row">
-    <div class="col-8">
+    <div class="col-7">
         <h4>Cooking Help, Hacks, and Culinary Adventures</h4>
     </div>
     <div class="col-4">
@@ -16,32 +16,32 @@
 @if(!_hideInputForm)
 {
     <div class="row">
-        <div class="col-8"></div>
+        <div class="col-7"></div>
         <div class="col-2">
-            Title of Post: 
-            <InputText @bind-Value=inputModel.Title></InputText><br>
+            Title of Post:<br> 
+            <InputText @bind-Value=inputModel.Title class="form-control"></InputText><br>
             @if(_showTitleMsg){
                 <div style="color:red;">Post must have a title</div>
             }
         </div>
         <div class="col-2">
-            Name of Author: 
-            <InputText @bind-Value=inputModel.Author></InputText><br>
+            Name of Author: <br>
+            <InputText @bind-Value=inputModel.Author class="form-control"></InputText><br>
             @if(_showAuthorMsg){
                 <div style="color:red">Post must have an author</div>
             }
         </div>
     </div>
     <div class="row">
-        <div class="col-8"></div>
-        <div class="col-4">
+        <div class="col-7"></div>
+        <div class="col-3">
             <div class="mt-auto">
-                Post Text: 
-                <InputTextArea @bind-Value=description />
-                <div>
-                    <button role="button" class="btn btn-warning" @onclick=SavePost>Save</button>
-                </div>
+                Post Text: <br>
+                <InputTextArea @bind-Value=description class="form-control"/>
             </div>
+        </div>
+        <div class="col-1">
+            <button role="button" class="btn btn-warning form-control mt-5" @onclick=SavePost>Save</button>
         </div>
     </div> 
 }
